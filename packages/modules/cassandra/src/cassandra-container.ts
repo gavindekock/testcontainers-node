@@ -44,6 +44,7 @@ export class CassandraContainer extends GenericContainer {
       CASSANDRA_PASSWORD: this.password,
       CASSANDRA_SNITCH: "GossipingPropertyFileSnitch",
       CASSANDRA_ENDPOINT_SNITCH: "GossipingPropertyFileSnitch",
+      CASSANDRA_JVM_OPTS: "-Dcassandra.skip_wait_for_gossip_to_settle=0 -Dcassandra.initial_token=0",
     });
     return new StartedCassandraContainer(await super.start(), this.dc, this.rack, this.username, this.password);
   }
