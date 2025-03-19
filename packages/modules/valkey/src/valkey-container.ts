@@ -1,5 +1,5 @@
-import { AbstractStartedContainer, GenericContainer, StartedTestContainer, Wait } from "testcontainers";
 import path from "path";
+import { AbstractStartedContainer, GenericContainer, StartedTestContainer, Wait } from "testcontainers";
 
 const VALKEY_PORT = 6379;
 
@@ -73,7 +73,10 @@ export class ValkeyContainer extends GenericContainer {
 }
 
 export class StartedValkeyContainer extends AbstractStartedContainer {
-  constructor(startedTestContainer: StartedTestContainer, private readonly password?: string) {
+  constructor(
+    startedTestContainer: StartedTestContainer,
+    private readonly password?: string
+  ) {
     super(startedTestContainer);
   }
 

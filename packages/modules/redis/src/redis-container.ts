@@ -1,5 +1,5 @@
-import { AbstractStartedContainer, GenericContainer, StartedTestContainer, Wait } from "testcontainers";
 import path from "path";
+import { AbstractStartedContainer, GenericContainer, StartedTestContainer, Wait } from "testcontainers";
 
 const REDIS_PORT = 6379;
 
@@ -74,7 +74,10 @@ export class RedisContainer extends GenericContainer {
 }
 
 export class StartedRedisContainer extends AbstractStartedContainer {
-  constructor(startedTestContainer: StartedTestContainer, private readonly password?: string) {
+  constructor(
+    startedTestContainer: StartedTestContainer,
+    private readonly password?: string
+  ) {
     super(startedTestContainer);
   }
 
